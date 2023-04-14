@@ -1,0 +1,110 @@
+
+<div class="row flex text-center mb-2">
+  <div>
+    <h2>SPIRITUAL FELLOWSHIP OF SADH SANGAT SAMAGAMS</h2>
+    <h5>ORGANIZED AND COORDINATED BY GURUDWARA BRAHM BUNGA SAHIB DODRA, PUNJAB</h5>
+  </div>
+</div>
+<div class="row text-center my-3">
+  <span>ਵਾਹਿਗੁਰੂ ਜੀ ਕਾ ਖਾਲਸਾ ਵਾਹਿਗੁਰੂ ਜੀ ਕੀ ਫਤਿਹ</span>
+</div>
+<hr />
+<div class="d-flex flex-row justify-content-center text-center">
+  <div class="radio-text">Click here to listen to the <a href="http://usa13.fastcast4u.com:5386/stream?type=http&nocache=3066">Radio Stream</a></div>
+</div>
+<hr />
+
+<div class="mat-design-table table table-responsive">
+  <div class="d-flex flex-row justify-content-center text-center title-chatgpt">Material Design Table</div>
+  <div class="d-flex flex-row-reverse">
+    <div class="btn-zoom btn-group shadow-0" role="group" aria-label="Basic example">
+      <button type="button" class=" btn btn-secondary" (click)="condensedZoom = true;"><i class="fa-solid fa-2x fa-magnifying-glass-plus"></i></button>
+      <button type="button" class=" btn btn-secondary" (click)="condensedZoom = false;"><i class="fa-solid fa-2x fa-magnifying-glass-minus"></i></button>
+    </div>
+
+    <button type="button" class="mx-1 btn btn-secondary" (click)="filterList(true)">CANADA</button>
+    <button type="button" class="mx-1 btn btn-secondary" (click)="filterList(false)">AMERICA</button>
+    <button type="button" class="mx-1 btn btn-secondary btn-all" (click)="filterList(null)">All</button>
+
+  </div>
+  <table [ngClass]="{'zoom-view':condensedZoom}" class="table align-middle mb-0 bg-white table-striped table-hover">
+    <thead class="bg-light">
+    <tr>
+      <th>Dates</th>
+      <th>City</th>
+      <th>Contact</th>
+      <th>Phone</th>
+      <th>Airport</th>
+      <th>Porgram Link</th>
+      <th>Airport Link</th>
+    </tr>
+    </thead>
+    <tbody class="table-striped">
+    <tr *ngFor="let samagam of filteredSamagams">
+      <td [ngClass]="{'sticky-column' : stickyClass}">{{samagam.startDate | date: 'MMM d'}} - {{samagam.endDate | date: 'MMM d'}}</td>
+      <td>{{samagam.city}}</td>
+      <td>
+        <div *ngFor="let contact of samagam.contact">{{contact}}</div>
+      </td>
+      <td>
+        <div *ngFor="let phone of samagam.phone">{{phone}}</div>
+      </td>
+      <td>
+        <div *ngFor="let airport of samagam.airport">{{airport}}</div>
+      </td>
+      <td>
+        <a *ngIf="samagam.programLink" [href]="samagam.programLink">Program Link</a>
+      </td>
+      <td>
+        <div>
+          <a *ngIf="samagam.airLink" [href]="samagam.airLink">Air Link</a>
+        </div>
+        <div>
+          <a *ngIf="samagam.roadLink" [href]="samagam.roadLink">Road Link</a>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="chat-gpt-table">
+  <div class="d-flex flex-row justify-content-center title-chatgpt">CHATGPT Table</div>
+  <div class="table-container">
+    <table>
+      <thead>
+      <tr>
+        <th class="titlebar" colspan="7">2023 North American Dates</th>
+      </tr>
+
+      </thead>
+      <tbody>
+      <tr *ngFor="let samagam of filteredSamagams">
+        <td [ngClass]="{'sticky-column' : stickyClass}">{{samagam.startDate | date: 'MMM d'}} - {{samagam.endDate | date: 'MMM d'}}</td>
+        <td>{{samagam.city}}</td>
+        <td>
+          <div *ngFor="let contact of samagam.contact">{{contact}}</div>
+        </td>
+        <td>
+          <div *ngFor="let phone of samagam.phone">{{phone}}</div>
+        </td>
+        <td>
+          <div *ngFor="let airport of samagam.airport">{{airport}}</div>
+        </td>
+        <td>
+          <a *ngIf="samagam.programLink" [href]="samagam.programLink">Program Link</a>
+        </td>
+        <td>
+          <div>
+            <a *ngIf="samagam.airLink" [href]="samagam.airLink">Air Link</a>
+          </div>
+          <div>
+            <a *ngIf="samagam.roadLink" [href]="samagam.roadLink">Road Link</a>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
